@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Room from './../../models/room';
 import { RoomService } from 'src/app/services/room.service';
+import {MatDialog, MatSnackBar, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-room-search',

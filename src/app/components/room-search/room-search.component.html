@@ -1,4 +1,25 @@
+
 <div class="container">
+  <form id="searchRooms">
+    <mat-form-field>
+      <input matInput [(ngModel)]="roomService.search.initDate" [matDatepicker]="initDate" name="dateEnd"
+             placeholder="Initial Date">
+      <mat-datepicker-toggle matSuffix [for]="initDate"></mat-datepicker-toggle>
+      <mat-datepicker #initDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="roomService.search.initialHour" name="initialHour" matInput placeholder="Initial Hour">
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="roomService.search.hours" name="hours" matInput placeholder="Amount of hours">
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="roomService.search.location" name="Location" matInput placeholder="Location">
+    </mat-form-field>
+    <button color="primary" mat-mini-fab>
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
   <table class="table table-striped">
     <tr>
       <th>Hotel</th>
