@@ -1,25 +1,27 @@
-
 <div class="container">
-  <form id="searchRooms">
-    <mat-form-field>
-      <input matInput [(ngModel)]="roomService.search.initDate" [matDatepicker]="initDate" name="dateEnd"
-             placeholder="Initial Date">
-      <mat-datepicker-toggle matSuffix [for]="initDate"></mat-datepicker-toggle>
-      <mat-datepicker #initDate></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <input [(ngModel)]="roomService.search.initialHour" name="initialHour" matInput placeholder="Initial Hour">
-    </mat-form-field>
-    <mat-form-field>
-      <input [(ngModel)]="roomService.search.hours" name="hours" matInput placeholder="Amount of hours">
-    </mat-form-field>
-    <mat-form-field>
-      <input [(ngModel)]="roomService.search.location" name="Location" matInput placeholder="Location">
-    </mat-form-field>
-    <button color="primary" mat-mini-fab>
-      <mat-icon>search</mat-icon>
-    </button>
+  <form id="searchRooms" [formGroup]="searchForm">
+    <div class="row">
+      <div class="col-3 form-group">
+        <label for="initDate">Initial date: </label><input id="initDate" [(ngModel)]="roomService.search.initDate" type="date" class="form-control" formControlName="initDate" name="initDate" placeholder="Initial Date">
+      </div>
+        <div class="col-2 form-group">
+          <label for="initialHour">Initial hour: </label><input id="initialHour" [(ngModel)]="roomService.search.initialHour" name="initialHour" class="form-control" type="number" formControlName="initialHour" placeholder="Initial Hour ">
+        </div>
+        <div class="col-2 form-group">
+          <label for="hours">Hours: </label><input id="hours" [(ngModel)]="roomService.search.hours" name="hours" class="form-control" type="number" formControlName="hours"  placeholder="Hours">
+        </div>
+        <div class="col-2 form-group">
+          <label for="location">Location: </label><input id="location" [(ngModel)]="roomService.search.location" name="location" class="form-control" type="text" formControlName="hours" placeholder="Location">
+        </div>
+        <div class="col-2 form-group">
+          <button color="primary" (click)="search(roomService.search)" name="search">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+    </div>
   </form>
+</div>
+<div class="container">
   <table class="table table-striped">
     <tr>
       <th>Hotel</th>

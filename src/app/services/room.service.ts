@@ -75,5 +75,4 @@ export class RoomService {
     this.searchRooms();
     return this.rooms;
   }
-
 }

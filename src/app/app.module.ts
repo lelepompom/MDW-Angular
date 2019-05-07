@@ -10,7 +10,15 @@ import {HttpService} from './core/http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BookingService} from './services/booking.service';
 import {PaymentGatewayComponent} from './components/payment-gateway/payment-gateway.component';
-import {MatDatepickerModule, MatFormFieldModule, MatIconModule, MatNativeDateModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatNativeDateModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,10 @@ import {MatDatepickerModule, MatFormFieldModule, MatIconModule, MatNativeDateMod
     MatDatepickerModule,
     MatIconModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     MatDatepickerModule,
