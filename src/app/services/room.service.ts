@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpService} from '../core/http.service';
 import Room from '../models/room';
 import Search from '../models/search';
+import {Observable} from 'rxjs';
+import {FormControl} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,7 @@ export class RoomService {
   public search: Search;
   private rooms: Room[];
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   private searchRooms(): void {
     this.search = {
@@ -74,5 +77,13 @@ export class RoomService {
   public getRooms(): Room[] {
     this.searchRooms();
     return this.rooms;
+  }
+
+  roomsSearch(location: string, initDate: string, finalDate: string): Observable<any> {
+    return this.httpService.post('/habitaciones/query', {
+      ubicacion: location,
+      fechaHoraReservaInicio: initDate,
+      fechaHoraReservaFin: finalDate
+    });
   }
 }

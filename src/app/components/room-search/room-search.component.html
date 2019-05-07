@@ -2,19 +2,19 @@
   <form id="searchRooms" [formGroup]="searchForm">
     <div class="row">
       <div class="col-3 form-group">
-        <label for="initDate">Initial date: </label><input id="initDate" [(ngModel)]="roomService.search.initDate" type="date" class="form-control" formControlName="initDate" name="initDate" placeholder="Initial Date">
+        <label for="initDate">Initial date: </label><input id="initDate" type="date" class="form-control" formControlName="initDate" name="initDate" placeholder="Initial Date">
       </div>
         <div class="col-2 form-group">
-          <label for="initialHour">Initial hour: </label><input id="initialHour" [(ngModel)]="roomService.search.initialHour" name="initialHour" class="form-control" type="number" formControlName="initialHour" placeholder="Initial Hour ">
+          <label for="initialHour">Initial hour: </label><input id="initialHour" name="initialHour" class="form-control" type="number" formControlName="initialHour" placeholder="Initial Hour ">
         </div>
         <div class="col-2 form-group">
-          <label for="hours">Hours: </label><input id="hours" [(ngModel)]="roomService.search.hours" name="hours" class="form-control" type="number" formControlName="hours"  placeholder="Hours">
+          <label for="hours">Hours: </label><input id="hours" name="hours" class="form-control" type="number" formControlName="hours"  placeholder="Hours">
         </div>
         <div class="col-2 form-group">
-          <label for="location">Location: </label><input id="location" [(ngModel)]="roomService.search.location" name="location" class="form-control" type="text" formControlName="hours" placeholder="Location">
+          <label for="location">Location: </label><input id="location" name="location" class="form-control" type="text" formControlName="hours" placeholder="Location">
         </div>
         <div class="col-2 form-group">
-          <button color="primary" (click)="search(roomService.search)" name="search">
+          <button color="primary" (click)="searchRooms()" name="search">
             <mat-icon>search</mat-icon>
           </button>
         </div>

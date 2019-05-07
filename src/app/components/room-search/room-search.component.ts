@@ -22,20 +22,56 @@ export class RoomSearchComponent implements OnInit {
   constructor(private roomService: RoomService) { }
 
   ngOnInit() {
-    this.rooms = this.roomService.getRooms();
     this.initForm();
   }
 
   private initForm() {
-    this.initDate = new FormControl(this.roomService.search.initDate);
-    this.initialHour = new FormControl(this.roomService.search.initialHour);
-    this.hours = new FormControl(this.roomService.search.hours);
-    this.location = new FormControl(this.roomService.search.location);
+    this.initDate = new FormControl();
+    this.initialHour = new FormControl();
+    this.hours = new FormControl();
+    this.location = new FormControl();
     this.searchForm = new FormGroup({
       initDate: this.initDate,
       initialHour: this.initialHour,
       hours: this.hours,
       location: this.location
     });
+  }
+
+  private searchRooms() {
+      this.roomService.roomsSearch(this.location.value, this.initDate.value, this.initDate.value).toPromise()
+      .then(data => {
+          console.log('Se puede hacer la reserva');
+          this.rooms = data;
+        }
+      )
+      .catch(error => {
+        if (error.error === 'BadRequestException') {
+          console.log('BadRequestException: Si se manda mal el código de habitación acaba aki');
+        } else if (error.error === 'ConflictException') {
+          console.log('ConflictException: Si ya está hecha una reserva en esas fechas entra aki');
+        }
+      });
+  }
+
+  formatDate(date: string, hour: number): string {
+    const str = date.split('/');
+    let formated = str[2];
+    if (parseInt(str[1], 10) < 10) {
+      formated += '-0' + str[1];
+    } else {
+      formated += '-' + str[1];
+    }
+    if (parseInt(str[0], 10) < 10) {
+      formated += '-0' + str[0];
+    } else {
+      formated += '-' + str[0];
+    }
+    if (hour > 24) {
+      formated += ' ' + (hour - 24) + ':00';
+    } else {
+      formated += ' ' + hour + ':00';
+    }
+    return formated;
   }
 }
