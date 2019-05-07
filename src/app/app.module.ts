@@ -10,6 +10,15 @@ import {HttpService} from './core/http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {BookingService} from './services/booking.service';
 import {PaymentGatewayComponent} from './components/payment-gateway/payment-gateway.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatNativeDateModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,9 +32,17 @@ import {PaymentGatewayComponent} from './components/payment-gateway/payment-gate
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
+    MatDatepickerModule,
     HttpService,
     BookingService
   ],
