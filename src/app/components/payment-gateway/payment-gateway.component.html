@@ -1,0 +1,41 @@
+<div class="container pt-3">
+  <div class="row p-3"><h4>Payment gateway</h4></div>
+  <br/>
+
+  <h6>Reservation total amount: {{room.precioHora * hours | number}} €</h6>
+  <br/>
+
+  <form>
+    <div>
+      <div class="col-4">
+        <label for="titular">Cardholder: </label>
+        <input type="text" class="form-control" name="titular">
+      </div>
+      <div class="col-4">
+        <label for="correo">e-mail: </label>
+        <input class="form-control" type="text" name="correo">
+      </div>
+      <div class="col-4">
+        <label for="nTarjeta">Card Number: </label>
+        <input class="form-control" type="text" name="nTarjeta">
+      </div>
+      <div class="col-4">
+        <label for="caducidad">Date of expiry: </label>
+        <input class="form-control" type="text" name="caducidad">
+      </div>
+      <div class="col-4">
+        <label for="cvv">CVV: </label>
+        <input class="form-control" type="text" name="cvv">
+      </div>
+    </div>
+  </form>
+
+  <div class="row pt-3">
+    <div class="col-6">
+      <button class="btn btn-outline-secondary" routerLink="">Back</button>
+    </div>
+    <div class="col-6 rightAlign">
+      <button class="btn btn-outline-dark">Pay</button>
+    </div>
+  </div>
+</div>
